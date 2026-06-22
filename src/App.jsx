@@ -73,7 +73,8 @@ function App() {
     ],
     boat: [
       { type: "output", text: "Deploying Dad's Ocean Cruiser..." },
-      { type: "ascii", text: `
+      {
+        type: "ascii", text: `
       |    |    |
      )_)  )_)  )_)
     )___))___))___)\\
@@ -107,14 +108,14 @@ function App() {
       ]);
       setCurrentView("output");
     }
-    
+
     setInput("");
   }
 
   return (
     <>
       <div className="ocean-bg"></div>
-      
+
       {/* Mobile rotation hint - managed by CSS media queries */}
       <div className="rotation-hint">
         📱 For the best experience, please use landscape mode or desktop.
@@ -123,7 +124,7 @@ function App() {
       <div className="scene-wrapper">
         <div className="scene">
           <div className={`card-container ${isOpen ? "open" : ""}`}>
-            
+
             {/* Right side of the card (Inside Right) - The Terminal */}
             <div className="card-page inside-right">
               <div className="terminal-header">
@@ -134,7 +135,7 @@ function App() {
                 </div>
                 <div className="terminal-title">bash - DadOS</div>
               </div>
-              
+
               {currentView === "terminal" ? (
                 <div className="terminal-body" onClick={() => inputRef.current?.focus()}>
                   {history.map((line, index) => (
@@ -142,7 +143,7 @@ function App() {
                       {line.text}
                     </div>
                   ))}
-                  
+
                   {isOpen && (
                     <form className="terminal-form" onSubmit={runCommand}>
                       <span className="prompt">root@dados:~$</span>
@@ -176,22 +177,22 @@ function App() {
 
             {/* Left flap of the card (Cover and Inside Left) */}
             <div className="card-page front-flap" onClick={() => !isOpen && setIsOpen(true)}>
-              
+
               {/* The front cover */}
               <div className="face front-cover">
                 {/* Minimalist SVG Sailboat Graphic */}
                 <svg className="marine-graphic" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M48 10L48 60M48 15L20 50L48 55M52 15L80 50L52 55" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15 65L85 65L75 80L25 80L15 65Z" fill="#38bdf8" fillOpacity="0.2" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 90Q25 80 50 90T90 90" stroke="#818cf8" strokeWidth="3" strokeLinecap="round"/>
-                  <path d="M10 95Q25 85 50 95T90 95" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+                  <path d="M48 10L48 60M48 15L20 50L48 55M52 15L80 50L52 55" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M15 65L85 65L75 80L25 80L15 65Z" fill="#38bdf8" fillOpacity="0.2" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M10 90Q25 80 50 90T90 90" stroke="#818cf8" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M10 95Q25 85 50 95T90 95" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
                 </svg>
-                
-                <h1>Happy Birthday<br/>Dad</h1>
+
+                <h1>Happy Birthday<br />Dad</h1>
                 <p>System Boot Sequence Initiated</p>
                 {!isOpen && <div className="click-hint">Click to Open</div>}
               </div>
-              
+
               {/* The inside left page */}
               <div className="face inside-left">
                 <div className="message-content">
@@ -207,8 +208,8 @@ function App() {
                     I hope you enjoy exploring the DadOS terminal!
                   </p>
                   <div className="signature">
-                    With love,<br/>
-                    Your favorite developer
+                    With love,<br />
+                    Your favorite eldest daughter
                   </div>
                 </div>
               </div>
